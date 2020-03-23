@@ -36,6 +36,7 @@ const WhatDoesItDoSection: React.FC = () => (
               inline
               colorType="primary"
               color={Colors.Base}
+              el="span"
             >
               stalkmarket
             </Copy>{' '}
@@ -223,7 +224,7 @@ const RotatingMessageSection: React.FC = () => (
                   onClick={() => logAnalytics('gettingStarted.clicked')}
                   solid
                   size={Size.Medium}
-                  icon={<i className="fad fa-paw-alt"></i>}
+                  icon={<i className="fad fa-leaf-heart"></i>}
                 >
                   Get Started!
                 </Button>

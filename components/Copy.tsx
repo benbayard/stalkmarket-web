@@ -132,7 +132,7 @@ export function Copy({
           font-family: ${
             purpose === Purpose.Marketing ? 'adelle, serif' : 'inherit'
           };
-          font-size: ${fontSizeMap[Viewport.Xs]![type]}px;
+          font-size: ${fontSizeMap[Viewport.Xs][type]}px;
           display: ${inline ? 'inline' : 'block'};
           line-height: ${lineHeightMap[type]};
           ${

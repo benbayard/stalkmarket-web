@@ -27,7 +27,7 @@ export default function CreateAccount() {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         logAnalytics('auth.createAccount');
-        Router.push('/checkout');
+        Router.push('/marketplace');
       }
     });
   }, []);

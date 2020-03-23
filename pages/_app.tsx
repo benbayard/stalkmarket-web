@@ -11,7 +11,8 @@ import Link from 'next/link';
 
 const App: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   const showLinks =
-    !router.pathname.includes('auth') && !router.pathname.includes('checkout');
+    !router.pathname.includes('auth') &&
+    !router.pathname.includes('marketplace');
   return (
     <>
       <Head>
@@ -20,46 +21,6 @@ const App: React.FC<AppProps> = ({ Component, pageProps, router }) => {
           rel="stylesheet"
           href="https://use.typekit.net/oou4pyi.css"
         ></link>
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-132347528-1"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              process.env.NODE_ENV === 'production'
-                ? `window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'UA-132347528-1');`
-                : '',
-          }}
-        />
-
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.fbAsyncInit = function() {
-            FB.init({
-              appId      : '633221513916721',
-              cookie     : true,
-              xfbml      : true,
-              version    : 'v6.0'
-            });
-              
-            FB.AppEvents.logPageView();   
-              
-          };
-
-          (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-          }(document, 'script', 'facebook-jssdk'));`,
-          }}
-        />
       </Head>
       <MainWrapper>
         <Header>
@@ -106,6 +67,7 @@ function Footer() {
                         color={Colors.Lighter}
                         inline
                         underline
+                        el="span"
                       >
                         Contact Ben
                       </Copy>
@@ -128,6 +90,7 @@ function Footer() {
                         color={Colors.Lighter}
                         inline
                         underline
+                        el="span"
                       >
                         <li>Privacy Policy</li>
                       </Copy>
@@ -139,6 +102,7 @@ function Footer() {
                         color={Colors.Lighter}
                         inline
                         underline
+                        el="span"
                       >
                         <li>Terms of use</li>
                       </Copy>
@@ -151,6 +115,7 @@ function Footer() {
                         color={Colors.Lighter}
                         inline
                         underline
+                        el="span"
                       >
                         <li>Cookie Policy</li>
                       </Copy>
@@ -244,7 +209,10 @@ export const Links: React.FC<{}> = () => (
     <ul>
       <li>
         <Link href="/auth/create">
-          <Button size={Size.Small} icon={<i className="fad fa-paw-alt"></i>}>
+          <Button
+            size={Size.Small}
+            icon={<i className="fad fa-leaf-heart"></i>}
+          >
             Get Started
           </Button>
         </Link>
@@ -265,7 +233,7 @@ export function WordMark() {
   return (
     <>
       <h1>
-        better<span>pup</span>
+        stalk<span>market</span>
       </h1>
       <style jsx>{`
         h1 {
