@@ -1,5 +1,7 @@
 import fb from 'firebase/app';
+import * as fireorm from 'fireorm';
 import 'firebase/auth';
+import 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -12,6 +14,19 @@ const firebaseConfig = {
   measurementId: process.env.MEASUREMENT_ID,
 };
 
-export const firebase: fb.app.App = !fb.apps.length
-  ? fb.initializeApp(firebaseConfig)
-  : fb.app();
+let firebase: fb.app.App;
+
+let firestore: fb.firestore.Firestore;
+
+if (!fb.apps.length) {
+  firebase = fb.initializeApp(firebaseConfig);
+  firestore = firebase.firestore();
+  fireorm.initialize(firestore);
+} else {
+  firebase = fb.app();
+  firestore = firebase.firestore();
+}
+
+firestore.settings({});
+
+export { firebase, firestore };

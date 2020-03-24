@@ -201,27 +201,29 @@ const RotatingMessageSection: React.FC = () => (
           <Col sm={6} last="sm">
             <img src="/static/neighbors.svg" />
           </Col>
-          <Col sm={6} className="margin">
-            <Copy purpose={Copy.Purpose.Marketing} type={Copy.Type.H1} inline>
-              Find the{' '}
-              <span className="green">
-                <TextLoop children={['turnips', 'furniture', 'friends']} />
-              </span>
-              you're looking for!
-            </Copy>
+          <Col sm={6}>
             <div className="margin">
-              <Copy
-                weight="300"
-                purpose={Copy.Purpose.Marketing}
-                type={Copy.Type.H2}
-              >
-                Health and fitness tracker for your dog.
+              <Copy purpose={Copy.Purpose.Marketing} type={Copy.Type.H1} inline>
+                Find the{' '}
+                <span className="green">
+                  <TextLoop children={['turnips', 'furniture', 'friends']} />
+                </span>{' '}
+                you're looking for!
               </Copy>
+              <div className="smallMargin">
+                <Copy
+                  weight="300"
+                  purpose={Copy.Purpose.Marketing}
+                  type={Copy.Type.H2}
+                >
+                  Get the best prices on your turnips!
+                </Copy>
+              </div>
             </div>
             <div className="margin center">
               <Link href="/auth/create">
                 <Button
-                  onClick={() => logAnalytics('gettingStarted.clicked')}
+                  onClick={() => logAnalytics('home.gettingStarted.clicked')}
                   solid
                   size={Size.Medium}
                   icon={<i className="fad fa-leaf-heart"></i>}
@@ -260,7 +262,6 @@ const RotatingMessageSection: React.FC = () => (
       img {
         width: 100vw;
         margin-left: -20px;
-        margin-top: -100px;
       }
 
       @media only screen and (min-width: 576px) {
@@ -282,6 +283,10 @@ const RotatingMessageSection: React.FC = () => (
 
       .margin {
         ${margin({ mt: Size.Large })}
+      }
+
+      .smallMargin {
+        ${margin({ mt: Size.Small })}
       }
 
       .center {

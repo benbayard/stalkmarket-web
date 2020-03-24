@@ -23,14 +23,15 @@ export default function CreateAccount() {
     provider.addScope('email');
     return provider;
   }, []);
-  React.useEffect(() => {
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        logAnalytics('auth.login');
-        Router.push('/test');
-      }
-    });
-  }, []);
+  React.useEffect(
+    () =>
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          logAnalytics('auth.login');
+        }
+      }),
+    []
+  );
   return (
     <>
       <div className="largeMargin">
@@ -125,7 +126,6 @@ export default function CreateAccount() {
         img {
           width: 100vw;
           margin-left: -20px;
-          margin-top: -80px;
         }
 
         @media only screen and (min-width: 576px) {

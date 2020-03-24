@@ -8,11 +8,22 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import Link from 'next/link';
+import { firebase } from '../utils/firebase';
 
 const App: React.FC<AppProps> = ({ Component, pageProps, router }) => {
+  const [isLoggedIn, setLoggedIn] = React.useState(false);
   const showLinks =
+    !isLoggedIn &&
     !router.pathname.includes('auth') &&
-    !router.pathname.includes('marketplace');
+      !router.pathname.includes('marketplace');
+
+  React.useEffect(
+    () =>
+      firebase.auth().onAuthStateChanged(function(user) {
+        setLoggedIn(!!user);
+      }),
+    []
+  );
   return (
     <>
       <Head>

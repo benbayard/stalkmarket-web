@@ -1,5 +1,7 @@
 export default function Marketplace() {
-  return null;
+  return <Search />;
 }
 
-function Search() {}
+function Search() {
+  return null;
+}

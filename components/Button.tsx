@@ -51,7 +51,7 @@ export function Button({
         }
         button {
           cursor: pointer;
-          ${padding({ ph: size + 1, pv: size })}
+          ${padding({ ph: size + 2, pv: size })}
           ${
             solid
               ? 'border: 0; border-bottom: calc(.2rem + .0625rem) solid rgba(0,0,0,.2);'
